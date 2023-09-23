@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>{{site.name}}-{{site.title}}</title>
+    {{include './common/meta.html'}}
+
+<body class="bg-f8f8f8">
+    <!-- 头部 -->
+    {{include './common/header.html'}}
+    <!-- banner -->
+    <section class="banner row justify-center">
+        <h1 class="chanyue text-c">chanyue-cms</h1>
+        <p class="f-23 text-c mt-20">基于express+mysql的一款轻量级高质量cms管理系统</p>
+        <p class="text-c mt-20">
+            <span class="el-button el-button--primary is-round mr-10 c-fff">
+                <a href="https://yanyutao0402.gitee.io/chanyue-doc/" target="_blank">开始使用</a>
+            </span>
+            <span class="el-button el-button--primary is-round c-fff">
+                <a href="https://gitee.com/yanyutao0402/chanyue-cms" target="_blank">码云</a>
+            </span>
+        </p>
+    </section>
+
+
+    <section class="main center row justify-between flex-wrap pd-30 ">
+
+        <div class="m-card">
+            <h3 class="f-20 mb-20">大道至简</h3>
+            <p class="f-16 mb-20">基于 express 路由框架，拒绝复杂设计模式。</p>
+        </div>
+
+        <div class="m-card">
+            <h3 class="f-20 mb-20">独有特色</h3>
+            <p class="f-16 mb-20">轻量、灵活、稳定、高性能</p>
+        </div>
+
+        <div class="m-card  ">
+            <h3 class="f-20 mb-20">SEO标准</h3>
+            <p class="f-16 mb-20"> 专注于`seo`,伪静态`html`和拼音导航，灵活设置关键词和描述</p>
+        </div>
+
+        <div class="m-card  ">
+            <h3 class="f-20 mb-20">灵活</h3>
+            <p class="f-16 mb-20"> 碎片功能，支持零碎文案配置，方便各类灵活文案配置。</p>
+        </div>
+
+        <div class="m-card ">
+            <h3 class="f-20 mb-20">高扩展</h3>
+            <p class="f-16 mb-20"> 支持扩展模型，字段配置，可动态生成表，超强扩展，可进行多领域网站开发，</p>
+        </div>
+
+        <div class="m-card ">
+            <h3 class="f-20 mb-20">高性能模板</h3>
+            <p class="f-16 mb-20">由art-template 模板引擎带来的简单易上手体验，无需二次开发即可定义一切</p>
+        </div>
+
+    </section>
+
+
+    <footer class="pd-20">
+        <p class="mt-30 text-c f-14">©copyright {{site.name}}{{site.json.siteSubtitle}}</p>
+        {{@ frag.copyright.content}}
+    </footer>
+
+
+     <!-- 移动端导航 -->
+     {{include './common/wap-nav.html'}}
+
+    {{include './common/js.html'}}
+   
+</body>
+
+</html>

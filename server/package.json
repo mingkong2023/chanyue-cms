@@ -1,0 +1,38 @@
+{
+  "name": "chanyue-cms",
+  "version": "1.4.0",
+  "description": "\"chanyue-cms\"",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "clear": "node timer.js",
+    "prd": "pm2 start pm2.json"
+  },
+  "keywords": [
+    "\"cms\""
+  ],
+  "author": "\"明空\"",
+  "license": "ISC",
+  "dependencies": {
+    "art-template": "^4.13.2",
+    "axios": "^1.5.0",
+    "body-parser": "^1.20.2",
+    "cheerio": "^1.0.0-rc.12",
+    "cookie-parser": "^1.4.6",
+    "dayjs": "^1.11.9",
+    "express": "^4.18.2",
+    "express-art-template": "^1.0.1",
+    "iconv-lite": "^0.6.3",
+    "jsonwebtoken": "^9.0.1",
+    "knex": "^2.5.1",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^3.5.2",
+    "node-schedule": "^2.1.1",
+    "qiniu": "^7.8.0",
+    "serve-favicon": "^2.5.0",
+    "svg-captcha": "^1.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

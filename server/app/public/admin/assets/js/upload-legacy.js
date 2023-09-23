@@ -1,0 +1,1 @@
+System.register(["./index-legacy.js","./qiniu-js-legacy.js"],(function(t,e){"use strict";var a,s;return{setters:[t=>{a=t.h,s=t.A},null],execute:function(){t("u",(t=>(console.log("data",t),a({url:`${s.BASE_API}/api/upload`,method:"post",headers:{"Content-type":"multipart/form-data"},data:t}))))}}}));

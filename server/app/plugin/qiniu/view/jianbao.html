@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+</head>
+
+<body>
+  <main>
+
+    <audio controls>
+      <source src="https://api.oick.cn/txt/apiz.php?text=建议明天把微信步数关一下&spd=5" type="audio/mpeg">
+    </audio>
+    <audio controls>
+      <source src="https://tts.baidu.com/text2audio?tex=%E8%BF%99%E9%87%8C%E4%BF%AE%E6%94%B9%E6%96%87%E5%AD%97&cuid=baike&lan=ZH&ctp=1&pdt=301&vol=9&rate=32&per=5
+      " type="audio/mpeg">
+    </audio>
+
+
+    <button id="playButton">播放</button>
+    <button id="pauseButton">暂停</button>
+    <button id="resumeButton">续播</button>
+    <button id="cancelButton">关闭</button>
+
+    <input type="button" id="playButton1" value="播放">
+    <div>
+      <article>
+        {{each data.list}}
+        <h5>{{$index + 1}}、 {{$value.title}}</h5>
+        <p>{{$value.digest}}</p>
+        {{/each}}
+      </article>
+    </div>
+  </main>
+  <script>
+    let speech = new SpeechSynthesisUtterance();
+    let voices = window.speechSynthesis.getVoices(); // 获取语言包
+    let progressText = document.querySelector('article');
+    speech.voice = voices[1]; // 18：普通话
+    speech.pitch = 1; //获取并设置话语的音调 (值越大越尖锐，range:0-2, default:1, float)
+    speech.rate = 1;// 获取并设置说话的速度 (值越大语速越快, range:0.1-10, default:1, float)
+    speech.volume = 1; // 获取并设置说话的音量 (range: 0-1, default:1, float)
+    speech.lang = "zh-CN"; // 设置播放语言，测试没效果
+    speech.voiceURI = 'Google 普通话（中国大陆）';
+    speech.text = document.querySelector('article').innerHTML
+
+    // 语音播报边界
+    speech.onboundary = (e) => {
+      //  console.log("语音播报边界",e)
+       // 获取边界索引或其它标识
+  let boundaryIndex = e.charIndex;
+  
+  // 根据当前边界修改播放进度文本的颜色
+  if (boundaryIndex === 0) {
+    progressText.style.color = 'red';
+  } else if (boundaryIndex === 5) {
+    progressText.style.color = 'blue';
+  } else if (boundaryIndex === 10) {
+    progressText.style.color = 'green';
+  }
+    }
+    // 错误语音播报事件
+    speech.onerror = () => {
+      // console.log("错误语音播报事件")
+    }
+    // 标记语音播报事件
+    speech.onmark = () => {
+      console.log("onmark", e)
+    }
+    // 语音开始播报
+    speech.onstart = (a, b, c) => {
+      console.log(a, b, c, "a,b,c")
+      // console.log("语音开始播报")
+    }
+    // 语音暂停播报
+    speech.onpause = () => {
+      // console.log("语音暂停播报")
+    }
+    // 语音恢复播报
+    speech.onresume = () => {
+      // console.log("语音恢复播报")
+    }
+    // 语音结束播报
+    speech.onend = () => {
+      // console.log("语音播报结束")
+    }
+    document.querySelector('#playButton').addEventListener('click', function () {
+      speechSynthesis.speak(speech);
+    })
+    document.querySelector('#pauseButton').addEventListener('click', function () {
+      speechSynthesis.pause();
+    })
+    document.querySelector('#resumeButton').addEventListener('click', function () {
+      speechSynthesis.resume();
+    })
+    document.querySelector('#cancelButton').addEventListener('click', function () {
+      speechSynthesis.cancel();
+    })
+
+
+    const playButton = document.getElementById('playButton1');
+
+    playButton.addEventListener('click', async () => {
+      try {
+        const response = await fetch('/open/tts?text=Hello');
+        const blob = await response.blob();
+        const audio = new Audio();
+        audio.src = URL.createObjectURL(blob);
+        audio.addEventListener("canplaythrough", event => {
+          /* 音频可以播放；如果权限允许则播放 */
+          audio.play();
+        });
+      } catch (error) {
+        console.error('播放错误:', error);
+      }
+    });
+
+  </script>
+</body>
+
+</html>

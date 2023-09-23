@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>{{site.name}}-{{site.title}}</title>
+    {{include './common/meta.html'}}
+</head>
+
+<body>
+    <!-- 头部 -->
+    {{include './common/header.html'}}
+
+
+    <!-- banner -->
+    <section class="tips-404 row justify-center">
+        <h1 class="chanyue text-c">404</h1>
+        <p class="f-23 text-c mt-20">您访问的页面不存在</p>
+        <p class="text-c mt-20">
+            <span class="el-button el-button--primary is-round">
+                <a class="c-fff" href="/">去首页</a>
+            </span>
+        </p>
+    </section>
+
+    <footer class="pd-20">
+        <p class="mt-30 text-c f-14">©copyright {{site.name}}{{site.json.siteSubtitle}}</p>
+        {{@ frag.copyright.content}}
+    </footer>
+
+    <div id="app">
+        <el-drawer v-model="drawer" :show-close="false" :with-header="false" :before-close="handleClose">
+            {{include './common/wap-nav.html'}}
+        </el-drawer>
+    </div>
+
+    {{include './common/js.html'}}
+   
+</body>
+
+</html>

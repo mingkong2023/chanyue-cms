@@ -1,0 +1,19 @@
+<!DOCTYPE html> 
+<html>
+<head>
+    <title><%=name%></title>
+</head>
+<body >
+    <main >
+        <div >
+            <h1><%=name%></h1>
+            <time><%=time%></time>
+               <article>
+                <%_ data.forEach((item)=>{ -%>
+                    <p><%=item -%></p>
+               <%_ }) -%>
+               </article>
+        </div>
+    </main>
+</body>
+</html>
